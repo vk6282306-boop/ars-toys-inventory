@@ -105,6 +105,3 @@ Then open `http://localhost:3000`
 > Make sure `.env.local` has `MONGODB_URI` set.
 
 ---
-
-## 📞 Support
-WhatsApp: +91 98949 95660 | Email: arstoys6@gmail.com
