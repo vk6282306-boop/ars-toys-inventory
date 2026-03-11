@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "ARS Toys Inventory Manager — Cloud Edition",
   "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "vercel dev"
-  },
   "dependencies": {
     "mongoose": "^8.4.0"
   }

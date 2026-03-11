@@ -1,6 +1,6 @@
-import { connectDB, Product, Category, Restock, Sale } from './db.js';
+const { connectDB, Product, Category, Restock, Sale } = require('./db');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -12,11 +12,10 @@ export default async function handler(req, res) {
 
     const models = { products: Product, categories: Category, restocks: Restock, sales: Sale };
     const Model = models[resource];
-    if (!Model) return res.status(400).json({ error: 'Unknown resource' });
+    if (!Model) return res.status(400).json({ error: 'Unknown resource: ' + resource });
 
     if (req.method === 'GET') {
       const docs = await Model.find({}).sort({ createdAt: -1 }).lean();
-      // Return using _uid as id for frontend compatibility
       return res.json(docs.map(d => ({ ...d, id: d._uid })));
     }
 
@@ -41,7 +40,7 @@ export default async function handler(req, res) {
 
     return res.status(405).json({ error: 'Method not allowed' });
   } catch (err) {
-    console.error(err);
+    console.error('API Error:', err);
     return res.status(500).json({ error: err.message });
   }
-}
+};
