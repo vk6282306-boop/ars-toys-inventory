@@ -1,0 +1,19 @@
+{
+  "name": "ARS Toys Inventory Manager",
+  "short_name": "ARS Toys",
+  "description": "Inventory management app for ARS Toys, Arcot",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#080c10",
+  "theme_color": "#f0b429",
+  "orientation": "any",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "categories": ["business", "productivity"],
+  "shortcuts": [
+    { "name": "Add Product", "short_name": "Add", "url": "./index.html#inventory", "description": "Add a new product" },
+    { "name": "Record Sale",  "short_name": "Sale", "url": "./index.html#sales",     "description": "Record a sale" }
+  ]
+}
